@@ -1,0 +1,25 @@
+{
+  "name": "batch-crop",
+  "version": "1.0.0",
+  "description": "A cli tool to resize/crop all images in a given folder...",
+  "files": [
+    "index.js",
+    "tools.js"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha ./**/*.test.js"
+  },
+  "author": "thejsn",
+  "license": "MIT",
+  "dependencies": {
+    "command-line-args": "^4.0.4",
+    "inquirer": "^3.0.6",
+    "sharp": "^0.17.3"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "mocha": "3.3.0"
+  }
+}
