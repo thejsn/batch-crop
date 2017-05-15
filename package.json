@@ -1,6 +1,6 @@
 {
   "name": "batch-crop",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A cli tool to resize/crop all images in a given folder...",
   "files": [
     "index.js",
