@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs');
 
 module.exports = class Tools {

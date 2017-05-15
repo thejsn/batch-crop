@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const Tools = require('./tools');
 const inquirer = require('inquirer');
 const sharp = require('sharp');
