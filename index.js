@@ -10,9 +10,9 @@ const options = {
 	output: { name: 'output' },
 	width: { name: 'width' },
 	height: { name: 'height' },
-	cropping: { name: 'cropping', default: false },
+	cropping: { name: 'cropping', default: true },
 	naming: { name: 'naming', default: 'same' },
-	createJson: { name: 'createJson', default: true }
+	createJson: { name: 'createJson', default: false }
 }
 
 // argOptions will be populated with command line arguments.
@@ -24,10 +24,10 @@ const argOptions = commandLineArgs([
 	{ alias: 'c', type: Boolean, name: options.cropping.name, defaultValue: options.cropping.default },
 	{ alias: 'n', type: String, name: options.naming.name, defaultValue: options.naming.default },
 	{ alias: 'j', type: Boolean, name: options.createJson.name, defaultValue: options.createJson.default },
-	{ alias: 'f', type: Boolean, name: 'force-interactive', defaultValue: false }
+	{ alias: 'f', type: Boolean, name: 'forceInteractive', defaultValue: false }
 ]);
 
-// Skip interactive prompt if this is empty, unless "force-interactive" flag is set.
+// Skip interactive prompt if this is empty, unless "forceInteractive" flag is set.
 const missingRequiredArgs = Object.keys(options).filter(key => {
 	const option = options[key];
 	 return typeof argOptions[key] === 'undefined' && 
@@ -42,7 +42,7 @@ const missingRequiredArgs = Object.keys(options).filter(key => {
  * @returns {boolean}
  */
 function showWhen(name) {
-	return 	argOptions['force-interactive'] || 
+	return 	argOptions['forceInteractive'] || 
 			missingRequiredArgs.indexOf(name) !== -1;
 }
 
@@ -141,7 +141,7 @@ function normaliseAnswers(answers) {
  */
 function start() {
 	if(	missingRequiredArgs.length || 
-		argOptions['force-interactive']) {
+		argOptions['forceInteractive']) {
 
 		return startInteractivePrompt();
 
